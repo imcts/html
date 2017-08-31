@@ -1,10 +1,87 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>position</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 700px;
+            height: 500px;
+            background-color: red;
+        }
+
+        .modal-container {
+
+        }
+
+        .inline-block {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        .relative {
+            position: relative;
+            top: 100px;
+            width: 700px;
+            height: 500px;
+
+            background-color: red;
+        }
+
+        .margin-bottom {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: yellow;
+        }
+    </style>
 </head>
+
 <body>
 
+
+
+    <div class="margin-bottom">
+        <div class="relative">
+            <div class="rele">asdasda</div>
+            <div class="releqweqwe">asdasd</div>
+        </div>
+    </div>
+
+    <div class="content" style="width: 100%; height: 3000px; background-color: green;"></div>
+
+
+
+    <!-- <div class="modal-container">
+        <div class="content">나는 컨텐츠야</div>
+    </div>
+ -->
     <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $('body').on('click', function (e) {
+            var $this = $(e.target);
+
+            console.log($this.closest('.relative'));
+
+            if($this.closest('.relative').length === 0) {
+                console.log('팝업을 닫습니다');
+                $('body').off();
+            }
+        });
+    </script>
 </body>
 </html>
